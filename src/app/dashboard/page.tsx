@@ -9,22 +9,22 @@ const BasicPage = () => {
   const [fractionalProperties, setfractionalProperties] = useState([]);
 
   return (
-    <Flex fontFamily={"Roboto"} border={'1px'} borderColor={'gray.200'} h='100vh' backgroundColor={'#ebedf0'} >
+    <Flex fontFamily={"Roboto"} border={'1px'} borderColor={'gray.200'} h='100vh' backgroundColor={'#FFFFFF'} >
       <Navbar />
       <Box w='100%' h='100%'>
         <TopNav />
         <Box padding={5} h='85%'>
           {/* Side by Side List of Property Supplied or Fractonally Owned */}
           <Flex justifyContent={'space-evenly'} h='40%'  >
-            <Box w='40%' backgroundColor={'white'} p={3} h='60%' borderRadius={15} >
+            <Box w='40%' backgroundColor={'white'} p={3} h='60%' borderRadius={15}  border="1px solid rgba(0, 0, 0, 0.2)"  boxShadow="2px 2px 4px rgba(0, 0, 0, 0.1)" >
               <Text fontSize={'24px'}>Your Properties Supplied  </Text>
               {
                 suppliedProperties.length == 0 ?
                   <Text>Nothing supplied yet</Text>
                   : <Text>Data</Text>
               }
-            </Box>
-            <Box w='40%' backgroundColor={'white'} h='60%' p={3} borderRadius={15} >
+            </Box> 
+            <Box w='40%' backgroundColor={'white'} h='60%' p={3} borderRadius={15} border="1px solid rgba(0, 0, 0, 0.2)"  boxShadow="2px 2px 4px rgba(0, 0, 0, 0.1)" >
               <Text fontSize={'24px'} >Your Fractional Properties  </Text>
               {
                 suppliedProperties.length == 0 ?
@@ -34,7 +34,7 @@ const BasicPage = () => {
             </Box>
           </Flex>
           {/* REVENUE CHART */}
-          <Flex borderRadius={15} backgroundColor={'white'} w={'90%'} margin={'auto'} h='40%' direction={'column'} justifyContent={'space-between'} p={4}>
+          <Flex borderRadius={15} backgroundColor={'white'} w={'90%'} margin={'auto'} h='40%' direction={'column'} justifyContent={'space-between'} p={4} border="1px solid rgba(0, 0, 0, 0.2)"  boxShadow="2px 2px 4px rgba(0, 0, 0, 0.1)">
             {/* HEADER CONTENT FOR REVENUE CHART */}
             <Flex justifyContent={'space-between'} p={3}>
               <Flex alignItems={'center'} columnGap={4} >

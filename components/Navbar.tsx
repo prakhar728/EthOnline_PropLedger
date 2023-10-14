@@ -16,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = () => {
     };
 
     return (
-        <Flex bg={'#bcc2be'} w='15%' h='100%' p={6} direction={'column'} justifyContent={'space-evenly'} borderRadius={6}>
+        <Flex bg={'#F9F9F9'} w='15%' h='100%' p={6} direction={'column'} justifyContent={'space-evenly'} borderRadius={6} borderRight={'1px solid #f2f0f0 '}>
 
             {/* FIRST BOX TO CONTAIN TITLE AND HEADING */}
             <Box h={'10%'} borderBottom={'1px solid gray'} >
