@@ -4,16 +4,16 @@ import { Box, Center, ChakraProvider, Flex, Heading, Image, Text } from "@chakra
 import Navbar from "../../../components/Navbar";
 import TopNav from "../../../components/TopNav";
 import RevenueGraph from "../../../components/RevenueGraph";
-// import { useAccountAbstraction } from "../../../store/authContext";
+import { useAccountAbstraction } from "../../../store/authContext";
 
 
 const BasicPage = () => {
 
-  // const { loginWeb3Auth, isAuthenticated } = useAccountAbstraction()
+  const { loginWeb3Auth, isAuthenticated } = useAccountAbstraction()
 
   const [suppliedProperties, setsuppliedProperties] = useState([]);
   const [fractionalProperties, setfractionalProperties] = useState([]);
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  // const [isAuthenticated, setIsAuthenticated] = useState(false)
   return (
     <Flex fontFamily={"Roboto"} border={'1px'} borderColor={'gray.200'} h='100vh' backgroundColor={'#FFFFFF'} >
       <Navbar />
