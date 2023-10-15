@@ -56,7 +56,7 @@ const useAccountAbstraction = () => {
 }
 
 
-const AccountAbstractionProvider = ({ children }: { children: JSX.Element }) => {
+const AccountAbstractionProvider = ({ children }: { children: React.ReactNode  }) => {
   // owner address from the email  (provided by web3Auth)
   const [ownerAddress, setOwnerAddress] = useState<string>('')
 
@@ -88,9 +88,12 @@ const AccountAbstractionProvider = ({ children }: { children: JSX.Element }) => 
 
 
   useEffect(() => {
+
     ;(async () => {
+      console.log(process.env.NEXT_PUBLIC_WEB3_AUTH_CLIENT_ID);
+      
       const options: Web3AuthOptions = {
-        clientId: process.env.WEB3_AUTH_CLIENT_ID || '',
+        clientId: process.env.NEXT_PUBLIC_WEB3_AUTH_CLIENT_ID || '',
         web3AuthNetwork: 'testnet',
         chainConfig: {
           chainNamespace: CHAIN_NAMESPACES.EIP155,
@@ -137,12 +140,14 @@ const AccountAbstractionProvider = ({ children }: { children: JSX.Element }) => 
         modalConfig
       })
 
+      
       setWeb3AuthModalPack(web3AuthModalPack)
     })()
   }, [chain])
 
   // auth-kit implementation
   const loginWeb3Auth = useCallback(async () => {
+    console.log("Starting");
     if (!web3AuthModalPack) return
 
     try {

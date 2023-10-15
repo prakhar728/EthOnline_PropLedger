@@ -27,7 +27,7 @@ const TopNav: React.FC<TopNavProps> = () => {
                     isAuthenticated ? <Flex alignItems="center">
                         <Text ml={2}>{userAddress.slice(0, 4) + "..." + userAddress.slice(-4)}</Text>
                     </Flex> :
-                        <Button colorScheme='blue'>Sign In</Button>
+                        <Button colorScheme='blue' onClick={loginWeb3Auth}>Sign In</Button>
                 }
 
             </Flex>
