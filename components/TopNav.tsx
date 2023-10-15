@@ -5,10 +5,14 @@ import { Box, Button, Center, ChakraProvider, Flex, Heading, Icon, Image, Link, 
 import { useRouter } from "next/navigation";
 import { FiBell, FiCompass, FiHelpCircle, FiHome, FiMessageSquare } from 'react-icons/fi';
 import theme from "../theme";
+// import { useAccountAbstraction } from "../store/authContext";
 type TopNavProps = {};
 
 const TopNav: React.FC<TopNavProps> = () => {
-    const [isAuthenticated, setisAuthenticated] = useState<Boolean>(false);
+    // const { loginWeb3Auth, isAuthenticated } = useAccountAbstraction()
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
     const [userAddress, setuserAddress] = useState("");
     return (
         <Flex h='15%' w='100%' alignItems={'center'} justifyContent={'space-between'} padding={5}>
