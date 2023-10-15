@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { FiBell, FiCompass, FiHelpCircle, FiHome, FiMessageSquare } from 'react-icons/fi';
 import theme from "../theme";
 import { useAccountAbstraction } from "../store/authContext";
+import ConnectedWalletLabel from "./ConnectedWalletLabel";
 type TopNavProps = {};
 
 const TopNav: React.FC<TopNavProps> = () => {
@@ -21,11 +22,12 @@ const TopNav: React.FC<TopNavProps> = () => {
                     Welcome to your Dashboard ...
                 </Heading>
             </Box>
-            <Flex alignItems={'center'} justifyContent={'space-evenly'} w='12%'>
+            <Flex alignItems={'center'} justifyContent={'space-evenly'} w='40%'>
                 <Icon as={FiBell} />
                 {
                     isAuthenticated ? <Flex alignItems="center">
-                        <Text ml={2}>{userAddress.slice(0, 4) + "..." + userAddress.slice(-4)}</Text>
+                        {/* <Text ml={2}>{userAddress.slice(0, 4) + "..." + userAddress.slice(-4)}</Text> */}
+                        <ConnectedWalletLabel />
                     </Flex> :
                         <Button colorScheme='blue' onClick={loginWeb3Auth}>Sign In</Button>
                 }
