@@ -1,4 +1,3 @@
-const connectToMongo = require("./mongo");
 
 export async function GET(request:Request) {
     
@@ -6,4 +5,3 @@ export async function GET(request:Request) {
 }
 
 
-connectToMongo();
