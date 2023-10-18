@@ -47,7 +47,7 @@ const accountAbstractionContext = createContext<accountAbstractionContextValue>(
 
 const useAccountAbstraction = () => {
   const context = useContext(accountAbstractionContext)
-
+  
   if (!context) {
     throw new Error('useAccountAbstraction should be used within a AccountAbstraction Provider')
   }
@@ -209,14 +209,6 @@ const AccountAbstractionProvider = ({ children }: { children: React.ReactNode  }
     getSafeAddress()
   }, [safes, web3Provider])
 
-
-
-
-
-
- 
-
-  
   // fetch safe address balance with polling
   const fetchSafeBalance = useCallback(async () => {
     const balance = await web3Provider?.getBalance(safeSelected)

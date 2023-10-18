@@ -5,6 +5,7 @@ import { CacheProvider } from '@chakra-ui/next-js'
 import { ChakraProvider } from '@chakra-ui/react'
 import theme from '../../theme'
 import { AccountAbstractionProvider } from '../../store/authContext'
+// import ContractProvider from '../../store/contractContext'
 
 export function Providers({ 
     children 
@@ -15,7 +16,9 @@ export function Providers({
     <CacheProvider>
       <ChakraProvider theme={theme}>
         <AccountAbstractionProvider>
+          {/* <ContractProvider> */}
           {children}
+          {/* </ContractProvider> */}
         </AccountAbstractionProvider>
       </ChakraProvider>
     </CacheProvider>

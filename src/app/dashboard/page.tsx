@@ -1,18 +1,59 @@
 'use client'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Center, ChakraProvider, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import Navbar from "../../../components/Navbar";
 import TopNav from "../../../components/TopNav";
 import RevenueGraph from "../../../components/RevenueGraph";
 import { useAccountAbstraction } from "../../../store/authContext";
-
+// import { useContract } from "../../../store/contractContext";
+const { ethers } = require('ethers');
+import UserRegistry from "../../../assets/UserRegistry.json";
+import { log } from "@web3auth/base";
 
 const BasicPage = () => {
 
-  const { loginWeb3Auth, isAuthenticated } = useAccountAbstraction()
-
+  const { loginWeb3Auth, isAuthenticated, web3Provider } = useAccountAbstraction()
   const [suppliedProperties, setsuppliedProperties] = useState([]);
   const [fractionalProperties, setfractionalProperties] = useState([]);
+  const [contractInstance, setcontractInstance] = useState(null);
+  const contractABI = UserRegistry.abi;
+  const contractAddress = '0x5Dd018d76CC615c543D478677dE41F67b92E638d';
+  const initializeContract = async (web3Provider: any) => {
+    //   Replace with your web3 provider setup
+    if (web3Provider) {
+      try {
+        const provider = new ethers.BrowserProvider(web3Provider);
+
+        // Create a contract instance
+        const contract = new ethers.Contract(contractAddress, contractABI, provider);
+
+        // Return the contract instance
+        console.log(await contract.owner());
+        setcontractInstance(contract);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  const gatherData = async()=>{
+    if (contractInstance)
+    console.log(await contractInstance.owner());
+  }
+  // const {contract} = useContract();
+  useEffect(() => {
+    if (web3Provider) {
+      initializeContract(web3Provider);
+    }
+  }, [web3Provider]);
+
+
+  useEffect( () => {
+    if (contractInstance) {
+      gatherData();
+    }
+  }, [contractInstance])
+
   // const [isAuthenticated, setIsAuthenticated] = useState(false)
   return (
     <Flex fontFamily={"Roboto"} border={'1px'} borderColor={'gray.200'} h='100vh' backgroundColor={'#FFFFFF'} >
@@ -68,10 +109,10 @@ const BasicPage = () => {
               </Box>
             </Flex>
           </Box> :
-            <Box  w='100%' h='85%'>
+            <Box w='100%' h='85%'>
               <Center h='85%'>
                 <Heading color={'headings'}>Connect your Wallet to unlock Dashboard</Heading>
-                <Image src={"./vectorArrow.png"} w='10%'/>
+                <Image src={"./vectorArrow.png"} w='10%' />
               </Center>
             </Box>
         }

@@ -75,7 +75,7 @@ export default function Home() {
               fontSize="184px"
               color="transparent"
               style={{
-                background: "linear-gradient(to bottom, black, white)",
+                background: "linear-gradient(to bottom, black, white)",   
                 WebkitBackgroundClip: "text"
               }}
               
