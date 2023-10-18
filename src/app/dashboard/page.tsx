@@ -35,7 +35,7 @@ const BasicPage = () => {
                 <Text fontSize={'24px'} >Your Fractional Properties  </Text>
                 {
                   suppliedProperties.length == 0 ?
-                    <Text>Nothing supplied yet</Text>
+                    <Text>Nothing owned yet</Text>
                     : <Text>Data</Text>
                 }
               </Box>

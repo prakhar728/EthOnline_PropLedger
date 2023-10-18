@@ -22,9 +22,9 @@ function ConnectedWalletLabel() {
   }
 
   return (
-    <Stack direction="row" alignItems="center" justifyContent="space-between">
+    <Stack direction="row" alignItems="center" justifyContent="space-between" border={'1px solid grey'} p={3} borderRadius={10} boxShadow="2px 2px 4px rgba(0, 0, 0, 0.1)">
       <Stack direction="row" alignItems="center" spacing={1.5}>
-        <Image src={"./web3Auth_logo.png"} alt="connected Wallet logo" height={'50px'} />
+        <Image src={"./web3Auth_logo.png"} alt="connected Wallet logo" height={'30px'}  borderRadius={"50%"}/>
 
         <Text variant="body2">
           {ownerAddress && <AddressLabel address={ownerAddress} showBlockExplorerLink />}

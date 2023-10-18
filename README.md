@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PROPLEDGER
+PropLedger is a decentralized platform that enables fractionalized ownership of real estate using zero-knowledge proofs. Invest in properties with just a few dollars, and prove your ownership without revealing any sensitive information.
 
-## Getting Started
+## PROJECT DESCRIPTION
 
-First, run the development server:
+PropLedger is aimed at making it feasible for people to fulfill their will to invest while not putting a substantial amount of money at stake. The people get to prove their ownership without revealing any sensitive information thanks to zero-knowledge proofs. 
+Anyone can become a fractional owner and take part in the NFT gated chat.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## HOW IT'S MADE
+The project on it's base utilises Next.js for the frontend and server side components.
+It makes use of the safe{Core} AA SDK to provide a smooth UX while web3 enabling the project. Not only does the AA provide a wallet it allows the users to interact with the smart contract freely. 
+The Smart Contracts are deployed over the Polygon Mumbai chain, it primarily being supported by Safe's AA and being fast and efficient.
+The project also uses PolygonID to issue Verifiable Credits to the user to prove their ownership and to ease the process of KYC.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ROADMAP FOR THE PRODUCT
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### PROOF OF CONCEPT
+1. Able to signup using Google account
+2. Able to complete the KYC on the platform and recieve the respective VC.
+3. Able to Upload a property and wait for it to get verified.
+4. Able to buy a part of the property and get VC for that.
+5. Able to take part in Token-Gated Push Chat.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### FUTURE SCOPE
+1. Enable the property token holders to participate in voting to become DAO.
+2. 
 
-## Learn More
+## RUN IT LOCALLY
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

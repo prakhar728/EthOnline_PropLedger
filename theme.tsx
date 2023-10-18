@@ -11,6 +11,7 @@ const theme = extendTheme({
   fonts: {
     body:`'Raleway', sans-serif`,
     heading: `'Poppins', sans-serif`,
+    text:"`lato`,sans-serif"
   },
 });
 
