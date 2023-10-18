@@ -7,9 +7,11 @@ import { FiBell, FiCompass, FiHelpCircle, FiHome, FiMessageSquare } from 'react-
 import theme from "../theme";
 import { useAccountAbstraction } from "../store/authContext";
 import ConnectedWalletLabel from "./ConnectedWalletLabel";
-type TopNavProps = {};
+type TopNavProps = {
+    heading:string
+};
 
-const TopNav: React.FC<TopNavProps> = () => {
+const TopNav: React.FC<TopNavProps> = ({heading}) => {
     const { loginWeb3Auth, isAuthenticated } = useAccountAbstraction()
 
 //   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -19,7 +21,7 @@ const TopNav: React.FC<TopNavProps> = () => {
         <Flex h='15%' w='100%' alignItems={'center'} justifyContent={'space-between'} padding={5} >
             <Box>
                 <Heading as='h5' size='2xl' noOfLines={1} color={'#4169E1'} >
-                    Welcome to your Dashboard ...
+                    Welcome to your {heading} ...
                 </Heading>
             </Box>
             <Flex alignItems={'center'} justifyContent={'space-evenly'} w='20%' >

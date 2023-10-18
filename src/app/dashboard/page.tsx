@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import { Box, Center, ChakraProvider, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import Navbar from "../../../components/Navbar";
 import TopNav from "../../../components/TopNav";
 import RevenueGraph from "../../../components/RevenueGraph";
@@ -8,27 +8,28 @@ import { useAccountAbstraction } from "../../../store/authContext";
 // import { useContract } from "../../../store/contractContext";
 const { ethers } = require('ethers');
 import UserRegistry from "../../../assets/UserRegistry.json";
-import { log } from "@web3auth/base";
 
+interface UserRegistryContract {
+  owner(): Promise<string>;
+  // Add other methods as needed.
+}
 const BasicPage = () => {
 
   const { loginWeb3Auth, isAuthenticated, web3Provider } = useAccountAbstraction()
   const [suppliedProperties, setsuppliedProperties] = useState([]);
   const [fractionalProperties, setfractionalProperties] = useState([]);
-  const [contractInstance, setcontractInstance] = useState(null);
+  const [contractInstance, setcontractInstance] =useState<UserRegistryContract|null> (null);
   const contractABI = UserRegistry.abi;
   const contractAddress = '0x5Dd018d76CC615c543D478677dE41F67b92E638d';
   const initializeContract = async (web3Provider: any) => {
     //   Replace with your web3 provider setup
     if (web3Provider) {
       try {
-        const provider = new ethers.BrowserProvider(web3Provider);
 
         // Create a contract instance
-        const contract = new ethers.Contract(contractAddress, contractABI, provider);
+        const contract = new ethers.Contract(contractAddress, contractABI, web3Provider) as UserRegistryContract;
 
         // Return the contract instance
-        console.log(await contract.owner());
         setcontractInstance(contract);
       } catch (error) {
         console.log(error);
@@ -36,9 +37,10 @@ const BasicPage = () => {
     }
   };
 
-  const gatherData = async()=>{
-    if (contractInstance)
-    console.log(await contractInstance.owner());
+  const gatherData = async () => {
+    if (contractInstance!=null) {
+      console.log(await contractInstance.owner());
+    }
   }
   // const {contract} = useContract();
   useEffect(() => {
@@ -48,7 +50,7 @@ const BasicPage = () => {
   }, [web3Provider]);
 
 
-  useEffect( () => {
+  useEffect(() => {
     if (contractInstance) {
       gatherData();
     }
@@ -59,7 +61,7 @@ const BasicPage = () => {
     <Flex fontFamily={"Roboto"} border={'1px'} borderColor={'gray.200'} h='100vh' backgroundColor={'#FFFFFF'} >
       <Navbar />
       <Box w='100%' h='100%'>
-        <TopNav />
+        <TopNav heading="Dashboard"/>
         {
           isAuthenticated ? <Box padding={5} h='85%'>
             {/* Side by Side List of Property Supplied or Fractonally Owned */}

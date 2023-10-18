@@ -28,3 +28,7 @@
 }
 
 
+.active{
+  background-color: 'blue.500';
+     cursor: 'pointer'
+}
